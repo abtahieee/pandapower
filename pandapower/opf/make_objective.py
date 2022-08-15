@@ -73,7 +73,7 @@ def _init_gencost(ppci, net):
         nr_points = {len(p) for p in net.pwl_cost.points.values}
         points = max(nr_points)
         if is_quadratic:
-            raise ValueError("Quadratic costs can be mixed with piecewise linear costs")
+            raise ValueError("Quadratic costs can not be mixed with piecewise linear costs")
         columns = COST + (max(points, 2) + 1)*2
     else:
         columns = COST + 3 if is_quadratic else COST + 2
